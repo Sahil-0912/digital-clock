@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .header h4 {
+            margin: 0;
+            font-size: 1.2rem;
+            font-weight: normal;
+        }
+
+        .header p {
+            margin: 5px 0;
+            color: #bbb;
+        }
+
+        h1 {
+            color: #ffc107;
+            font-size: 1.5rem;
+            margin: 10px 0;
+        }
+
+        .clock {
+            border: 2px solid #05e6ee;
+            border-radius: 50%;
+            width: 200px;
+            height: 200px;
+            margin: 20px auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #time {
+            font-size: 2rem;
+            color: #05e6ee;
+        }
+
+        .swipe {
+            color: #bbb;
+            margin-top: 20px;
+            font-size: 0.9rem;
+        }
+        img{
+            height: 80px;
+            width: 80px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div id="output">
+            <div class="header">
+                <img src="img/sahil.jpg">
+                <h4>Sahil Vaghela</h4>
+                <p>This is built Using CSS and JavaScript</p>
+            </div>
+            <h1>Build Real-Time Digital Clock Using JavaScript</h1>
+            <div class="clock">
+                <span id="time">00:00:00</span>
+            </div>
+            <p class="swipe">Swipe For Code ➡</p>
+        </div>
+    </div>
+
+    <script>
+        setInterval(() => {
+            const date = new Date();
+            const hours = String(date.getHours()).padStart(2, '0'); // Ensures 2 digits
+            const minutes = String(date.getMinutes()).padStart(2, '0');
+            const seconds = String(date.getSeconds()).padStart(2, '0');
+            const result = `${hours}:${minutes}:${seconds}`;
+            document.querySelector('#time').innerHTML = result; // Update only the #time element
+        }, 1000); // Refresh every 1000ms (1 second)
+    </script>
+</body>
+
+</html>
